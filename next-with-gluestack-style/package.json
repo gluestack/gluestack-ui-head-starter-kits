@@ -1,0 +1,43 @@
+{
+  "name": "next-app-router-app",
+  "description": "Next.js app router with gluestack-ui template",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gluestack/nextjs-app-router.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@expo/html-elements": "latest",
+    "@gluestack-style/animation-resolver": "^1.0.0",
+    "@gluestack-style/react": "latest",
+    "@gluestack-ui/config": "^1.0.1",
+    "@gluestack-ui/themed": "latest",
+    "@gluestack/ui-next-adapter": "latest",
+    "@hookform/resolvers": "^3.1.0",
+    "@legendapp/motion": "latest",
+    "@types/node": "20.3.2",
+    "lucide-react-native": "^0.143.0",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.44.2",
+    "react-native-svg": "latest",
+    "react-native-web": "^0.19.7",
+    "react-native-web-next-link": "^0.1.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "@types/react-native": "^0.72.5",
+    "prop-types": "^15.8.1",
+    "typescript": "5.1.3"
+  }
+}

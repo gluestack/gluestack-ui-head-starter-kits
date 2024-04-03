@@ -1,0 +1,83 @@
+{
+  "name": "react-head-starter-kit",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-react": "^7.24.1",
+    "@expo/html-elements": "0.9.1",
+    "@gluestack-ui/button": "latest",
+    "@gluestack-ui/checkbox": "latest",
+    "@gluestack-ui/divider": "latest",
+    "@gluestack-ui/form-control": "latest",
+    "@gluestack-ui/icon": "latest",
+    "@gluestack-ui/image": "latest",
+    "@gluestack-ui/input": "latest",
+    "@gluestack-ui/link": "latest",
+    "@gluestack-ui/nativewind-utils": "^1.0.4",
+    "@gluestack-ui/pressable": "latest",
+    "@gluestack-ui/toast": "latest",
+    "@hookform/resolvers": "^3.1.0",
+    "@legendapp/motion": "latest",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "lucide-react-native": "^0.143.0",
+    "nativewind": "^4.0.36",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.2",
+    "react-native": "^0.73.6",
+    "react-native-svg": "^13.4.0",
+    "react-native-web": "^0.19.7",
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "zod": "^3.21.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "babel": {
+    "presets": [
+      "@babel/react",
+      "@babel/env"
+    ],
+    "plugins": [
+      "@babel/proposal-class-properties",
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "webpack-dev-server": "^5.0.4"
+  }
+}

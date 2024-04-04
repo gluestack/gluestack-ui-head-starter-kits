@@ -10,6 +10,8 @@ import ForgotPassword from "./routes/ForgotPassword";
 import OtpVerification from "./routes/OtpVerification";
 import CreatePassword from "./routes/CreatePassword";
 import {GluestackUIProvider} from './components/gluestack-ui-provider';
+import { Box } from "./components/box";
+import { View } from "react-native";
 // import { useColorScheme } from "nativewind";
 // import { GluestackUIProvider } from "@gluestack-ui/themed";
 // import { config } from "./gluestack-ui.config";
@@ -48,12 +50,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <>
     {/* <GluestackUIProvider config={config}> */}
-    <GluestackUIProvider mode='light'>
-      {/* <Box className='bg-red-500 w-20 h-20'></Box> */}
-      <>TEST</>
+    {/* <GluestackUIProvider mode='light'> */}
+      {/* <Box className='bg-red-500 w-20 h-20'/> */}
+      <View className='bg-red-500 w-20 h-20'/>
       {/* <RouterProvider router={router} /> */}
     {/* </GluestackUIProvider> */}
-    </GluestackUIProvider>
+    {/* </GluestackUIProvider> */}
   </>
 );
 

@@ -60,7 +60,7 @@ const signInSchema = z.object({
     .regex(new RegExp('.*\\d.*'), 'One number')
     .regex(
       new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-      'One special character'
+      'One special character',
     ),
   rememberme: z.boolean().optional(),
 })

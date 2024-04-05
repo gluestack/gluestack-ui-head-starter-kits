@@ -1,23 +1,23 @@
 import React, { useRef, useState } from "react";
-import { Box } from "@/src/components/box";
-import { VStack } from "@/src/components/vstack";
-import { HStack } from "@/src/components/hstack";
-import { Icon } from "@/src/components/icon";
-import { Text } from "@/src/components/text";
-import { Button, ButtonText } from "@/src/components/button";
-import { Image } from "@/src/components/image";
-import { Center } from "@/src/components/center";
-import { Heading } from "@/src/components/heading";
-import { Input, InputField } from "@/src/components/input";
-import { useToast } from "@/src/components/toast";
-import { LinkText } from "@/src/components/link";
+import { Box } from "../components/box";
+import { VStack } from "../components/vstack";
+import { HStack } from "../components/hstack";
+import { Icon } from "../components/icon";
+import { Text } from "../components/text";
+import { Button, ButtonText } from "../components/button";
+import { Image } from "../components/image";
+import { Center } from "../components/center";
+import { Heading } from "../components/heading";
+import { Input, InputField } from "../components/input";
+import { useToast } from "../components/toast";
+import { LinkText } from "../components/link";
 import {
   FormControl,
   FormControlError,
   FormControlErrorIcon,
   FormControlErrorText,
   FormControlHelperText,
-} from "@/src/components/form-control";
+} from "../components/form-control";
 import GuestLayout from "../layouts/GuestLayout";
 import { z } from "zod";
 import { AlertTriangle, ArrowLeftIcon } from "lucide-react-native";

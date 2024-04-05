@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@/src/components/box";
-import { VStack } from "@/src/components/vstack";
+import { Box } from "../components/box";
+import { VStack } from "../components/vstack";
 import { ScrollView, StatusBar } from "react-native";
 
 type GuestLayoutProps = {

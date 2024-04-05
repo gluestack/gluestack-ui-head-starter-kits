@@ -12,9 +12,11 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
         },
       },
       {
@@ -22,15 +24,30 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.svg$/,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         use: ["file-loader"],
       },
+      // {
+      //   test: /\.(ts|tsx)$/,
+      //   // exclude: /node_modules/,
+      //   use: {
+      //     loader: "babel-loader",
+      //     options: {
+      //       presets: [
+      //         "@babel/preset-env",
+      //         "@babel/preset-react",
+      //         "@babel/preset-typescript",
+      //       ],
+      //     },
+      //   },
+      // },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)?$/,
         use: {
           loader: "ts-loader",
           options: {
             transpileOnly: true,
+            onlyCompileBundledFiles: true,
           },
         },
         exclude: /node_modules/,

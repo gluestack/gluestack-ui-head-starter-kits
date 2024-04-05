@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { Box } from "@/src/components/box";
-import { VStack } from "@/src/components/vstack";
-import { HStack } from "@/src/components/hstack";
-import { Icon } from "@/src/components/icon";
-import { Text } from "@/src/components/text";
-import { Button, ButtonText } from "@/src/components/button";
-import { Image } from "@/src/components/image";
-import { Center } from "@/src/components/center";
-import { Heading } from "@/src/components/heading";
-import { Input, InputField } from "@/src/components/input";
-import { Toast, useToast, ToastTitle } from "@/src/components/toast";
+import { Box } from "../components/box";
+import { VStack } from "../components/vstack";
+import { HStack } from "../components/hstack";
+import { Icon } from "../components/icon";
+import { Text } from "../components/text";
+import { Button, ButtonText } from "../components/button";
+import { Image } from "../components/image";
+import { Center } from "../components/center";
+import { Heading } from "../components/heading";
+import { Input, InputField } from "../components/input";
+import { Toast, useToast, ToastTitle } from "../components/toast";
 import {
   FormControl,
   FormControlError,
   FormControlErrorIcon,
   FormControlErrorText,
-} from "@/src/components/form-control";
+} from "../components/form-control";
 import GuestLayout from "../layouts/GuestLayout";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

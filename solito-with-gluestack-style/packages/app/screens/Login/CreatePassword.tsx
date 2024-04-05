@@ -264,7 +264,7 @@ export default function CreatePassword() {
                         onChangeText={onChange}
                         onBlur={onBlur}
                         onSubmitEditing={handleKeyPress}
-                        returnKeyType="done"
+                        enterKeyHint="done"
                         type={showPassword ? 'text' : 'password'}
                       />
                       <InputSlot onPress={handleState} mr="$2">
@@ -322,7 +322,7 @@ export default function CreatePassword() {
                         onChangeText={onChange}
                         onBlur={onBlur}
                         onSubmitEditing={handleKeyPress}
-                        returnKeyType="done"
+                        enterKeyHint="done"
                         type={showConfirmPassword ? 'text' : 'password'}
                       />
                       <InputSlot onPress={handleConfirmPasswordState} mr="$2">

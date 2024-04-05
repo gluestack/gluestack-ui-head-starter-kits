@@ -217,7 +217,7 @@ const SignUpForm = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   onSubmitEditing={handleKeyPress}
-                  returnKeyType="done"
+                  enterKeyHint="done"
                 />
               </Input>
             )}
@@ -255,7 +255,7 @@ const SignUpForm = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   onSubmitEditing={handleKeyPress}
-                  returnKeyType="done"
+                  enterKeyHint="done"
                   type={showPassword ? 'text' : 'password'}
                 />
                 <InputSlot onPress={handleState} pr="$3">
@@ -298,7 +298,7 @@ const SignUpForm = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   onSubmitEditing={handleKeyPress}
-                  returnKeyType="done"
+                  enterKeyHint="done"
                   type={showConfirmPassword ? 'text' : 'password'}
                 />
 
@@ -328,6 +328,7 @@ const SignUpForm = () => {
             onChange={onChange}
             alignSelf="flex-start"
             mt="$5"
+            aria-label="check"
           >
             <CheckboxIndicator mr="$2">
               <CheckboxIcon as={CheckIcon} />

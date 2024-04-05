@@ -8,8 +8,9 @@
     "ios": {
       "bundleIdentifier": "com.solito.expo-router"
     },
-    "plugins": [
-      "expo-router"
-    ]
+    "plugins": ["expo-router"],
+    "android": {
+      "package": "com.anonymous.solitoexporouter"
+    }
   }
 }

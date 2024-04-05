@@ -1,4 +1,4 @@
-import ForgotPasswordScreen from '@gluestack/app/Login/ForgotPassword'
+import ForgotPasswordScreen from 'app/screens/Login/ForgotPassword'
 
 const Screen = () => {
   return <ForgotPasswordScreen />

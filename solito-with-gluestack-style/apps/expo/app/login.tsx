@@ -1,5 +1,5 @@
-import SignInScreen from '@gluestack/app/Login/SignIn'
+import SignInScreen from 'app/screens/Login/SignIn'
 
-export default () => {
+export default function Page() {
   return <SignInScreen />
 }

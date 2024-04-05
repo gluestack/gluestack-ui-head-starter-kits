@@ -44,7 +44,7 @@ type forgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>
 function Header() {
   return (
     <HStack space="md" px="$3" py="$4.5" alignItems="center">
-      <Link href="#">
+      <Link href="/login">
         <Icon
           size="md"
           as={ArrowLeftIcon}
@@ -241,7 +241,7 @@ export default function ForgotPassword() {
               }}
             >
               Not to worry! Enter email address associated with your account and
-              we'll send a link to reset your password.
+              we&apos;ll send a link to reset your password.
             </Text>
           </VStack>
 
@@ -276,7 +276,7 @@ export default function ForgotPassword() {
                     onChangeText={onChange}
                     onBlur={onBlur}
                     onSubmitEditing={handleKeyPress}
-                    returnKeyType="done"
+                    enterKeyHint="done"
                   />
                 </Input>
               )}

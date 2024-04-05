@@ -7,14 +7,15 @@ module.exports = function (api) {
     plugins: [
       // Required for expo-router
       'expo-router/babel',
+      'react-native-reanimated/plugin',
       [
         'module-resolver',
         {
+          extensions: ['.js', '.ts', '.json', '.jsx', '.tsx'],
           alias: {
-            ['@gluestack/app']: path.join(
-              __dirname,
-              '../../packages/app/screens'
-            ),
+            root: ['./'],
+            // For development, we want to alias the library to the source
+            ['app']: path.resolve(__dirname, '../../packages/app'),
           },
         },
       ],

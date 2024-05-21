@@ -1,9 +1,24 @@
 import React from 'react';
 import { createIcon } from '@gluestack-ui/icon';
-import { Path, G, Svg } from 'react-native-svg';
+import { Path, G } from 'react-native-svg';
+
+import { styled, AsForwarder } from '@gluestack-ui/themed';
+
+const StyledIcon: any = styled(
+  AsForwarder,
+  {},
+  {
+    ancestorStyle: ['_icon'],
+  },
+  {
+    propertyTokenMap: {
+      stroke: 'colors',
+    },
+  }
+);
 
 export const GoogleIcon: any = createIcon({
-  Root: Svg,
+  Root: StyledIcon,
   viewBox: '0 0 48 48',
   path: (
     <G>
@@ -27,7 +42,7 @@ export const GoogleIcon: any = createIcon({
   ),
 });
 export const FacebookIcon: any = createIcon({
-  Root: Svg,
+  Root: StyledIcon,
   viewBox: '0 0 48 48',
   path: (
     <G>

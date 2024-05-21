@@ -1,39 +1,73 @@
-import React from "react";
-import { Box } from "@/components/box";
-import { VStack } from "@/components/vstack";
-import { Button, ButtonText } from "@/components/button";
-import { Image } from "@/components/image";
-import { Center } from "@/components/center";
-import GuestLayout from "../../layouts/GuestLayout";
-import { Link as RNLink } from "react-native-web-next-link";
+"use client";
 
+import React from "react";
+import {
+  Box,
+  VStack,
+  Button,
+  Image,
+  Center,
+  ButtonText,
+} from "@gluestack-ui/themed";
+
+import { Link as RNLink } from "react-native-web-next-link";
+import GuestLayout from "../../layouts/GuestLayout";
+
+// to render login and sign up buttons
 function ActionButtons() {
   return (
-    <VStack className="space-xs mt-10 md:mt-12">
+    <VStack
+      space="xs"
+      mt="$10"
+      sx={{
+        "@md": {
+          mt: "$12",
+        },
+      }}
+    >
       <Button
+        sx={{
+          ":hover": {
+            bg: "$backgroundLight100",
+          },
+        }}
         size="md"
         variant="solid"
         action="primary"
         isDisabled={false}
         isFocusVisible={false}
-        className="hover:bg-background-100 hover:text-primary-500 bg-background-0 dark:bg-background-950"
+        backgroundColor="$backgroundLight0"
       >
-        <RNLink href="/login" width="auto">
-          <ButtonText className="font-bold decoration-0 text-primary-500 dark:text-background-100">
+        <RNLink href="/login">
+          <ButtonText
+            fontWeight="$bold"
+            textDecorationLine="none"
+            color="$primary500"
+          >
             LOGIN
           </ButtonText>
         </RNLink>
       </Button>
+
       <Button
-        className="hover:bg-background-0 hover:text-primary-500 border-primary-0 my-4"
+        sx={{
+          ":hover": {
+            bg: "$backgroundLight0",
+            _text: {
+              color: "$primary500",
+            },
+          },
+        }}
+        my="$4"
         size="md"
         variant="outline"
+        borderColor="$borderLight0"
         action="primary"
         isDisabled={false}
         isFocusVisible={false}
       >
-        <RNLink href="/signup" width="auto">
-          <ButtonText className="decoration-0 text-typography-100 dark:text-typography-900">
+        <RNLink href="/signup">
+          <ButtonText textDecorationLine="none" color="$textLight50">
             SIGN UP
           </ButtonText>
         </RNLink>
@@ -44,17 +78,32 @@ function ActionButtons() {
 
 function HeaderLogo() {
   return (
-    <Box className="items-center justify-center">
+    <Box alignItems="center" justifyContent="center">
       <Image
+        h="$10"
+        w="$80"
         alt="gluestack-ui Pro"
         resizeMode="contain"
         source={require("./assets/images/gluestackUiProLogo_web_light.svg")}
-        className="md:hidden flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        sx={{
+          "@md": {
+            display: "flex",
+          },
+        }}
+        display="none"
       />
+
       <Image
+        sx={{
+          "@md": {
+            display: "none",
+          },
+        }}
         alt="gluestack-ui Pro"
-        className="hidden md:flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        display="flex"
         source={require("./assets/images/gluestackUiProLogo_mobile.png")}
+        w="$275"
+        h="$141"
       />
     </Box>
   );
@@ -62,10 +111,21 @@ function HeaderLogo() {
 
 export default function SplashScreen() {
   return (
+    // place GluestackUIProvider in your app root accordingly
     <GuestLayout>
-      <Center className="flex-1 w-full">
+      <Center w="$full" flex={1}>
         <Box
-          className="w-full min-h-[$authcard] md:px-8  px-4 justify-center py-2"
+          maxWidth="$508"
+          w="$full"
+          minHeight="$authcard"
+          sx={{
+            "@md": {
+              px: "$8",
+              bg: "$primary500",
+            },
+          }}
+          px="$4"
+          justifyContent="center"
         >
           <HeaderLogo />
           <ActionButtons />

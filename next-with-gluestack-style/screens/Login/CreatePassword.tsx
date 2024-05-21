@@ -1,37 +1,45 @@
 import React, { useState } from "react";
-import { Box } from "@/components/box";
-import { VStack } from "@/components/vstack";
-import { HStack } from "@/components/hstack";
-import { Icon } from "@/components/icon";
-import { Text } from "@/components/text";
-import { Button, ButtonText } from "@/components/button";
-import { Image } from "@/components/image";
-import { Center } from "@/components/center";
-import { Heading } from "@/components/heading";
-import { Input, InputField, InputIcon, InputSlot } from "@/components/input";
-import { Toast, useToast, ToastTitle } from "@/components/toast";
 import {
+  VStack,
+  Box,
+  HStack,
+  Icon,
+  Text,
+  Button,
+  Image,
+  Center,
+  ArrowLeftIcon,
   FormControl,
+  Heading,
+  FormControlHelperText,
+  EyeIcon,
+  EyeOffIcon,
+  ButtonText,
+  Input,
+  useToast,
+  Toast,
+  InputField,
+  ToastTitle,
+  FormControlHelper,
   FormControlError,
   FormControlErrorIcon,
   FormControlErrorText,
-  FormControlHelperText,
-  FormControlHelper,
-} from "@/components/form-control";
-import {
-  AlertTriangle,
-  ArrowLeftIcon,
-  EyeIcon,
-  EyeOffIcon,
-} from "lucide-react-native";
+  InputIcon,
+  ScrollView,
+  InputSlot,
+} from "@gluestack-ui/themed";
+
+import { Link as RNLink } from "react-native-web-next-link";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
-import { Keyboard, ScrollView } from "react-native";
 import { zodResolver } from "@hookform/resolvers/zod";
-import GuestLayout from "../../layouts/GuestLayout";
-import { Link as RNLink } from "react-native-web-next-link";
-import { useRouter } from "next/navigation";
 
+import { Keyboard } from "react-native";
+
+import { AlertTriangle } from "lucide-react-native";
+
+import GuestLayout from "../../layouts/GuestLayout";
+import { useRouter } from "next/navigation";
 
 const createPasswordSchema = z.object({
   password: z
@@ -68,36 +76,36 @@ export default function CreatePassword() {
     resolver: zodResolver(createPasswordSchema),
   });
 
-  // const toast = useToast();
+  const router = useRouter();
+  const toast = useToast();
 
   const onSubmit = (data: CreatePasswordSchemaType) => {
     if (data.password === data.confirmpassword) {
-      // toast.show({
-      //   placement: 'bottom right',
-      //   render: ({ id }) => {
-      //     return (
-      //       <Toast nativeID={id} variant="accent" action="success">
-      //         <ToastTitle>Password updated successfully</ToastTitle>
-      //       </Toast>
-      //     );
-      //   },
-      // });
+      // Implement your own onSubmit logic and navigation logic here.
+      router.replace("/login");
 
-      // Navigate screen to appropriate location
-      // router.replace("/");
-
+      toast.show({
+        placement: "bottom right",
+        render: ({ id }) => {
+          return (
+            <Toast nativeID={id} variant="accent" action="success">
+              <ToastTitle>Passwords matched, update successful</ToastTitle>
+            </Toast>
+          );
+        },
+      });
       reset();
     } else {
-      // toast.show({
-      //   placement: 'bottom right',
-      //   render: ({ id }) => {
-      //     return (
-      //       <Toast nativeID={id} variant="accent" action="error">
-      //         <ToastTitle>Passwords do not match</ToastTitle>
-      //       </Toast>
-      //     );
-      //   },
-      // });
+      toast.show({
+        placement: "bottom right",
+        render: ({ id }) => {
+          return (
+            <Toast nativeID={id} variant="accent" action="error">
+              <ToastTitle>Passwords do not match</ToastTitle>
+            </Toast>
+          );
+        },
+      });
     }
   };
 
@@ -123,19 +131,20 @@ export default function CreatePassword() {
 
   function Header() {
     return (
-      <HStack
-        space="md"
-        className="px-3 my-4 items-center bg-background-950
-            dark:bg-background-0"
-      >
-        <RNLink href="..">
+      <HStack space="md" px="$3" my="$4.5" alignItems="center">
+        <RNLink href="#">
           <Icon
             size="md"
             as={ArrowLeftIcon}
-            className="color-typography-50 dark:color-typography-50"
+            color="$textLight50"
+            sx={{ _dark: { color: "$textDark50" } }}
           />
         </RNLink>
-        <Text className="color-typography-50 text-lg dark:color-typography-50">
+        <Text
+          color="$textLight50"
+          fontSize="$lg"
+          sx={{ _dark: { color: "$textDark50" } }}
+        >
           Create Password
         </Text>
       </HStack>
@@ -145,8 +154,15 @@ export default function CreatePassword() {
   function ScreenText() {
     return (
       <VStack space="md">
-        <Heading className="text-xl md:text-2xl">Create new password</Heading>
-        <Text className="text-sm">
+        <Heading
+          fontSize="$xl"
+          sx={{
+            "@md": { fontSize: "$2xl" },
+          }}
+        >
+          Create new password
+        </Heading>
+        <Text fontSize="$sm">
           Your new password must be different from previous used passwords and
           must be of at least 8 characters.
         </Text>
@@ -157,42 +173,70 @@ export default function CreatePassword() {
   function WebSideContainer() {
     return (
       <Center
-        className="flex-1 bg-background-950
-            dark:bg-background-0"
+        flex={1}
+        bg="$primary500"
+        sx={{
+          _dark: { bg: "$primary500" },
+        }}
       >
         <Image
-          className="h-10 w-80"
-          alt="Gluestack-ui pro"
+          w="$80"
+          h="$10"
+          alt="gluestack-ui Pro"
           resizeMode="contain"
           source={require("./assets/images/gluestackUiProLogo_web_light.svg")}
         />
       </Center>
     );
   }
+
   return (
     <GuestLayout>
-      <Box className="md:hidden">
+      <Box
+        sx={{
+          "@md": { display: "none" },
+        }}
+      >
         <Header />
       </Box>
-      <Box className="flex-1 md:flex hidden">
+      <Box
+        display="none"
+        sx={{
+          "@md": { display: "flex" },
+        }}
+        flex={1}
+      >
         <WebSideContainer />
       </Box>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
         }}
-        style={{
-          flex: 1,
-        }}
+        flex={1}
         bounces={false}
       >
         <Box
-          className="bg-background-0
-            dark:bg-background-50 pt-8 pb-4 px-4 md:p-8"
+          bg="$backgroundLight0"
+          pt="$8"
+          pb="$4"
+          px="$4"
+          sx={{
+            "@md": {
+              p: "$8",
+            },
+            _dark: { bg: "$backgroundDark800" },
+          }}
+          flex={1}
         >
           <ScreenText />
-          <VStack space="md" className="mt-7 md:mt-8">
-            <Box className="w-full md:w-80">
+          <VStack
+            mt="$7"
+            space="md"
+            sx={{
+              "@md": { mt: "$8" },
+            }}
+          >
+            <Box sx={{ "@base": { w: "$full" }, "@md": { width: "$80" } }}>
               <FormControl isInvalid={!!errors.password} isRequired={true}>
                 <Controller
                   defaultValue=""
@@ -213,6 +257,7 @@ export default function CreatePassword() {
                   render={({ field: { onChange, onBlur, value } }) => (
                     <Input>
                       <InputField
+                        fontSize="$sm"
                         placeholder="Password"
                         value={value}
                         onChangeText={onChange}
@@ -220,16 +265,15 @@ export default function CreatePassword() {
                         onSubmitEditing={handleKeyPress}
                         returnKeyType="done"
                         type={showPassword ? "text" : "password"}
-                        className="text-sm"
                       />
-                      <InputSlot onPress={handleState} className="mr-2">
+                      <InputSlot onPress={handleState} mr="$2">
                         <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
                       </InputSlot>
                     </Input>
                   )}
                 />
                 <FormControlError>
-                  <FormControlErrorIcon size="sm" as={AlertTriangle} />
+                  <FormControlErrorIcon as={AlertTriangle} size="md" />
                   <FormControlErrorText>
                     {errors?.password?.message}
                   </FormControlErrorText>
@@ -240,7 +284,13 @@ export default function CreatePassword() {
                 <FormControlHelper></FormControlHelper>
               </FormControl>
             </Box>
-            <Box className="w-full md:w-80">
+
+            <Box
+              sx={{
+                "@base": { w: "$full" },
+                "@md": { width: "$80" },
+              }}
+            >
               <FormControl
                 isInvalid={!!errors.confirmpassword}
                 isRequired={true}
@@ -264,6 +314,7 @@ export default function CreatePassword() {
                   render={({ field: { onChange, onBlur, value } }) => (
                     <Input>
                       <InputField
+                        fontSize="$sm"
                         placeholder="Confirm Password"
                         value={value}
                         onChangeText={onChange}
@@ -271,12 +322,8 @@ export default function CreatePassword() {
                         onSubmitEditing={handleKeyPress}
                         returnKeyType="done"
                         type={showConfirmPassword ? "text" : "password"}
-                        className="text-sm"
                       />
-                      <InputSlot
-                        onPress={handleConfirmPasswordState}
-                        className="mr-2"
-                      >
+                      <InputSlot onPress={handleConfirmPasswordState} mr="$2">
                         <InputIcon
                           as={showConfirmPassword ? EyeIcon : EyeOffIcon}
                         />
@@ -286,7 +333,7 @@ export default function CreatePassword() {
                 />
 
                 <FormControlError>
-                  <FormControlErrorIcon size="md" as={AlertTriangle} />
+                  <FormControlErrorIcon as={AlertTriangle} size="md" />
                   <FormControlErrorText>
                     {errors?.confirmpassword?.message}
                   </FormControlErrorText>
@@ -304,10 +351,11 @@ export default function CreatePassword() {
           <Button
             variant="solid"
             size="lg"
+            mt="auto"
+            sx={{ "@md": { mt: "$40" } }}
             onPress={handleSubmit(onSubmit)}
-            className="mt-auto md:mt-40"
           >
-            <ButtonText className="text-sm">UPDATE PASSWORD</ButtonText>
+            <ButtonText fontSize="$sm">UPDATE PASSWORD</ButtonText>
           </Button>
         </Box>
       </ScrollView>

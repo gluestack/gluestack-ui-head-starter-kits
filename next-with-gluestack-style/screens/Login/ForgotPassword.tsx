@@ -1,51 +1,61 @@
 import React, { useState } from "react";
-import { Box } from "@/components/box";
-import { VStack } from "@/components/vstack";
-import { HStack } from "@/components/hstack";
-import { Icon } from "@/components/icon";
-import { Text } from "@/components/text";
-import { Button, ButtonText } from "@/components/button";
-import { Image } from "@/components/image";
-import { Center } from "@/components/center";
-import { Heading } from "@/components/heading";
-import { Input, InputField } from "@/components/input";
-import { Toast, useToast, ToastTitle } from "@/components/toast";
 import {
+  Button,
   FormControl,
+  HStack,
+  Input,
+  Text,
+  VStack,
+  useToast,
+  Toast,
+  Box,
+  Icon,
+  ToastTitle,
+  InputField,
   FormControlError,
   FormControlErrorIcon,
   FormControlErrorText,
-} from "@/components/form-control";
-import GuestLayout from "../../layouts/GuestLayout";
+  ButtonText,
+  Image,
+  ArrowLeftIcon,
+  Heading,
+  Center,
+} from "@gluestack-ui/themed";
+
+import { Link as RNLink } from "react-native-web-next-link";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Keyboard } from "react-native";
-import { AlertTriangle, ArrowLeftIcon } from "lucide-react-native";
-import { Link as RNLink } from "react-native-web-next-link";
-import { useRouter } from "next/navigation";
 
+import { Keyboard } from "react-native";
+
+import { AlertTriangle } from "lucide-react-native";
+
+import GuestLayout from "../../layouts/GuestLayout";
+import { useRouter } from "next/navigation";
 
 const forgotPasswordSchema = z.object({
   email: z.string().min(1, "Email is required").email(),
 });
-type SignUpSchemaType = z.infer<typeof forgotPasswordSchema>;
+
+type forgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;
 
 function Header() {
   return (
-    <HStack
-      space="md"
-      className="px-3 py-4 items-center bg-background-950
-            dark:bg-background-0"
-    >
-      <RNLink href="..">
+    <HStack space="md" px="$3" py="$4.5" alignItems="center">
+      <RNLink href="#">
         <Icon
           size="md"
           as={ArrowLeftIcon}
-          className="color-typography-50 dark:color-typography-950"
+          color="$textLight50"
+          sx={{ _dark: { color: "$textDark50" } }}
         />
       </RNLink>
-      <Text className="color-typography-50 text-lg dark:color-typography-50">
+      <Text
+        color="$textLight50"
+        fontSize="$lg"
+        sx={{ _dark: { color: "$textDark50" } }}
+      >
         Forgot Password
       </Text>
     </HStack>
@@ -55,34 +65,76 @@ function Header() {
 function SideContainerWeb() {
   return (
     <Center
-      className="bg-background-950
-            dark:bg-background-0 md:py-$48 flex-1"
+      sx={{
+        "@base": {
+          _light: { bg: "$backgroundLight0" },
+          _dark: { bg: "$backgroundDark800" },
+        },
+        "@md": {
+          flex: 1,
+          _light: { bg: "$primary500" },
+          _dark: { bg: "$primary500" },
+          py: "$48",
+        },
+      }}
     >
       <Image
         resizeMode="contain"
+        w="$200"
+        h="$40"
         source={require("./assets/images/forgotPassword_web_dark.png")}
         alt="Alternate Text"
-        className="w-[200px] h-40"
       />
     </Center>
   );
 }
-
 function MobileScreenImage() {
   return (
     <Center
-      className="px-4 -mb-0.5 bg-background-950
-            dark:bg-background-0 md:py-48 md:px-12 md:bg-primary-500 md:dark:bg-primary-700"
+      px="$4"
+      mb={-0.5}
+      sx={{
+        "@base": {
+          _light: { bg: "$backgroundLight0" },
+          _dark: { bg: "$backgroundDark800" },
+        },
+        "@md": {
+          py: "$48",
+          px: "$12",
+          _light: { bg: "$primary500" },
+          _dark: { bg: "$primary700" },
+        },
+      }}
     >
       <Image
-        className="flex dark:hidden md:hidden md:dark:hidden h-40 w-48"
+        sx={{
+          "@base": {
+            _light: { display: "flex" },
+            _dark: { display: "none" },
+            mt: "$12",
+          },
+          "@md": {
+            _light: { display: "none" },
+            _dark: { display: "none" },
+          },
+        }}
         source={require("./assets/images/forgotPassword_mobile_light.png")}
+        h="$40"
+        w="$48"
         resizeMode="contain"
         alignSelf="center"
       />
       <Image
-        className="h-40 w-48 hidden dark:flex md:hidden"
+        sx={{
+          "@base": {
+            _light: { display: "none", _dark: { display: "flex" } },
+            mt: "$12",
+          },
+          "@md": { display: "none" },
+        }}
         source={require("./assets/images/forgotPassword_mobile_dark.png")}
+        h="$40"
+        w="$48"
         resizeMode="contain"
         alignSelf="center"
       />
@@ -96,30 +148,28 @@ export default function ForgotPassword() {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm<SignUpSchemaType>({
+  } = useForm<forgotPasswordSchemaType>({
     resolver: zodResolver(forgotPasswordSchema),
   });
-
   const [isEmailFocused, setIsEmailFocused] = useState(false);
 
   const router = useRouter();
-  // const toast = useToast();
+  const toast = useToast();
 
-  const onSubmit = (_data: SignUpSchemaType) => {
-    // toast.show({
-    //   placement: 'bottom right',
-    //   render: ({ id }) => {
-    //     return (
-    //       <Toast nativeID={id} variant="accent" action="success">
-    //         <ToastTitle>OTP sent successfully </ToastTitle>
-    //       </Toast>
-    //     );
-    //   },
-    // });
-    reset();
-
-    // Navigate screen to appropriate location
+  const onSubmit = (_data: forgotPasswordSchemaType) => {
     router.push("/verify-otp");
+    reset();
+    toast.show({
+      placement: "bottom right",
+      render: ({ id }) => {
+        return (
+          <Toast nativeID={id} variant="accent" action="success">
+            <ToastTitle>OTP Send Successfully</ToastTitle>
+          </Toast>
+        );
+      },
+    });
+    reset();
   };
 
   const handleKeyPress = () => {
@@ -129,29 +179,71 @@ export default function ForgotPassword() {
 
   return (
     <GuestLayout>
-      <VStack className="bg-primary-500 md:flex-row dark:bg-background-900 flex-1">
-        <Box className="md:hidden">
+      <VStack
+        sx={{
+          "@md": { flexDirection: "row" },
+          _dark: { bg: "$backgroundDark900" },
+        }}
+        flex={1}
+        bg="$primary500"
+      >
+        <Box sx={{ "@md": { display: "none" } }}>
           <Header />
           <MobileScreenImage />
         </Box>
-        <Box className="md:flex hidden flex-1">
+        <Box sx={{ "@md": { display: "flex" } }} display="none" flex={1}>
           <SideContainerWeb />
         </Box>
         <Box
-          className="max-w-[508px] pt-0 pb-8 px-4 bg-background-0
-            dark:bg-background-50 flex-1 md:pt-8 md:px-8"
+          maxWidth="$508"
+          pt="$0"
+          pb="$8"
+          px="$4"
+          bg="$backgroundLight0"
+          flex={1}
+          sx={{
+            "@md": {
+              pt: "$8",
+              px: "$8",
+            },
+            _dark: { bg: "$backgroundDark800" },
+          }}
         >
-          <VStack space="md" className="items-center md:items-start">
-            <Heading className="text-xl text-center md:text-left md:text-2xl">
+          <VStack
+            space="md"
+            alignItems="center"
+            sx={{ "@md": { alignItems: "flex-start" } }}
+          >
+            <Heading
+              fontSize="$xl"
+              textAlign="center"
+              sx={{
+                "@md": {
+                  textAlign: "left",
+                  fontSize: "$2xl",
+                },
+              }}
+            >
               Forgot Password?
             </Heading>
-            <Text className="text-sm font-normal text-center md:text-left">
+
+            <Text
+              fontSize="$sm"
+              fontWeight="normal"
+              textAlign="center"
+              sx={{
+                "@md": {
+                  textAlign: "left",
+                },
+              }}
+            >
               Not to worry! Enter email address associated with your account and
               we'll send a link to reset your password.
             </Text>
           </VStack>
+
           <FormControl
-            className="my-8"
+            my="$8"
             isInvalid={(!!errors.email || isEmailFocused) && !!errors.email}
             isRequired={true}
           >
@@ -174,6 +266,7 @@ export default function ForgotPassword() {
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input>
                   <InputField
+                    fontSize="$sm"
                     placeholder="Email"
                     type="text"
                     value={value}
@@ -181,20 +274,19 @@ export default function ForgotPassword() {
                     onBlur={onBlur}
                     onSubmitEditing={handleKeyPress}
                     returnKeyType="done"
-                    className="text-sm"
                   />
                 </Input>
               )}
             />
             <FormControlError>
-              <FormControlErrorIcon as={AlertTriangle} size="sm" />
+              <FormControlErrorIcon as={AlertTriangle} size="md" />
               <FormControlErrorText>
                 {errors?.email?.message}
               </FormControlErrorText>
             </FormControlError>
           </FormControl>
-          <Button variant="solid" size="lg" onPress={handleSubmit(onSubmit)}>
-            <ButtonText className="text-sm">Send OTP</ButtonText>
+          <Button variant="solid" size="md" onPress={handleSubmit(onSubmit)}>
+            <ButtonText fontSize="$sm">SUBMIT</ButtonText>
           </Button>
         </Box>
       </VStack>

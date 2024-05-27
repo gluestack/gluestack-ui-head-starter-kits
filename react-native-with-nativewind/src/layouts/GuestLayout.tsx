@@ -40,7 +40,7 @@ export default function GuestLayout(props: GuestLayoutProps) {
                 className="text-background-0 dark:text-background-950"
               />
             </Button> */}
-            <VStack className="w-full flex-1 overflow-hidden md:max-w-[740px] md:flex-row md:rounded-xl md:flex-none">
+            <VStack className="w-full flex-1 overflow-hidden md:max-w-containerWidth md:flex-row md:rounded-xl md:flex-none">
               {props.children}
             </VStack>
           </ScrollView>

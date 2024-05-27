@@ -61,13 +61,13 @@ function HeaderLogo() {
   return (
     <Box className="items-center justify-center">
       <Image
-        className="md:hidden flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="md:flex hidden h-141 w-275 object-contain"
         alt="gluestack-ui Pro"
-        resizeMode="contain"
+        
         source={LogoWebLight}
       />
       <Image
-        className="hidden md:flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="flex md:hidden h-40 w-80"
         alt="gluestack-ui Pro"
         source={LogoMobile}
       />
@@ -80,7 +80,7 @@ export default function SplashScreen() {
     // place GluestackUIProvider in your app root accordingly
     <GuestLayout>
     <Center className="flex-1 w-full">
-      <Box className="w-full  md:px-8  px-4 justify-center py-2 max-w-[508px] bg-red-300">
+      <Box className="w-full  md:px-8  px-4 justify-center py-2 max-w-508">
         <HeaderLogo />
         {/* <Button
         // className="hover:bg-background-100 hover:text-primary-500 bg-background-0 dark:bg-background-950"

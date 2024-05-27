@@ -56,11 +56,11 @@ function PinInput({
               focusedIndex === index
                 ? 'border-b-primary-900'
                 : 'border-b-background-500'
-            } bg-background-0 md:w-1/6 lg:w-12 dark:bg-background-100 ${
+            } bg-background-0 md:w-1/6 lg:w-25/2 dark:bg-background-400 ${
               focusedIndex === index
                 ? 'border-b-primary-500'
                 : 'border-b-background-100'
-            } w-14 text-center border-b-2 rounded-sm`}
+            } w-100/7 text-center border-b-2 rounded-sm`}
             onChangeText={text => {
               if (text.length === 1 && index < 5) {
                 refList[index + 1].current?.focus();
@@ -250,7 +250,7 @@ export default function OtpVerification() {
       </Box>
       <Box
         className="bg-background-0
-            dark:bg-background-50 md:p-8 py-8 px-4 flex-1 max-w-[508px]">
+            dark:bg-background-50 md:p-8 py-8 px-4 flex-1 max-w-508">
         <MainText />
         <VStack space="md" className="mt-6">
           <FormControl>

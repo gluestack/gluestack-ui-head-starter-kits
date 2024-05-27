@@ -16,10 +16,10 @@ function ActionButtons() {
         action="primary"
         isDisabled={false}
         isFocusVisible={false}
-        className="hover:bg-background-100 hover:text-primary-500 bg-background-0 dark:bg-background-950"
+        className="hover:bg-background-100 hover:text-typography-500 bg-background-0"
       >
         <StyledExpoRouterLink href="/login" width="auto">
-          <ButtonText className="font-bold decoration-0 text-primary-500 dark:text-background-100">
+          <ButtonText className="font-bold decoration-0 text-typography-900 dark:text-typography-0">
             LOGIN
           </ButtonText>
         </StyledExpoRouterLink>
@@ -47,24 +47,26 @@ function HeaderLogo() {
     <Box className="items-center justify-center">
       <Image
         alt="gluestack-ui Pro"
-        resizeMode="contain"
         source={require('./assets/images/gluestackUiProLogo_web_light.svg')}
-        className="md:hidden flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="md:flex hidden h-141 w-275 object-contain"
       />
       <Image
         alt="gluestack-ui Pro"
-        className="hidden md:flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="flex md:hidden h-40 w-80"
         source={require('./assets/images/gluestackUiProLogo_mobile.png')}
       />
     </Box>
   );
 }
 
+
 export default function SplashScreen() {
   return (
     <GuestLayout>
       <Center className="flex-1 w-full">
-        <Box className="w-full min-h-[$authcard] md:px-8  px-4 justify-center py-2">
+        <Box
+          className="w-full max-w-508 min-h-authcard md:px-8  px-4 justify-center py-2"
+        >
           <HeaderLogo />
           <ActionButtons />
         </Box>

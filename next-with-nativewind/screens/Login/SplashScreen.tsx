@@ -47,13 +47,12 @@ function HeaderLogo() {
     <Box className="items-center justify-center">
       <Image
         alt="gluestack-ui Pro"
-        resizeMode="contain"
         source={require("./assets/images/gluestackUiProLogo_web_light.svg")}
-        className="md:hidden flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="md:flex hidden object-contain h-141 w-275"
       />
       <Image
         alt="gluestack-ui Pro"
-        className="hidden md:flex sm:h-[40px] sm:w-[320px] md:h-[141px] md:w-[275px]"
+        className="flex md:hidden h-40 w-80 "
         source={require("./assets/images/gluestackUiProLogo_mobile.png")}
       />
     </Box>
@@ -65,7 +64,7 @@ export default function SplashScreen() {
     <GuestLayout>
       <Center className="flex-1 w-full">
         <Box
-          className="w-full min-h-[$authcard] md:px-8  px-4 justify-center py-2"
+          className="w-full min-h-authcard max-w-508 md:px-8  px-4 justify-center py-2"
         >
           <HeaderLogo />
           <ActionButtons />

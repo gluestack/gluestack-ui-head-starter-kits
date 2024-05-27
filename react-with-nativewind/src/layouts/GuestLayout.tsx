@@ -25,7 +25,7 @@ export default function GuestLayout(props: GuestLayoutProps) {
             dark:bg-background-0 md:bg-background-800 md:dark:bg-background-100"
         bounces={false}
       >
-        <VStack className="w-full flex-1 overflow-hidden md:max-w-[740px] md:flex-row md:rounded-xl md:flex-none">
+        <VStack className="w-full flex-1 overflow-hidden md:max-w-containerWidth md:flex-row md:rounded-xl md:flex-none">
           {props.children}
         </VStack>
       </ScrollView>

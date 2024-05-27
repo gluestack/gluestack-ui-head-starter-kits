@@ -62,7 +62,7 @@ function SideContainerWeb() {
         resizeMode="contain"
         source={require("./assets/images/forgotPassword_web_dark.png")}
         alt="Alternate Text"
-        className="w-[200px] h-40"
+        className="w-200 h-40"
       />
     </Center>
   );
@@ -138,7 +138,7 @@ export default function ForgotPassword() {
           <SideContainerWeb />
         </Box>
         <Box
-          className="max-w-[508px] pt-0 pb-8 px-4 bg-background-0
+          className="max-w-508 pt-0 pb-8 px-4 bg-background-0
             dark:bg-background-50 flex-1 md:pt-8 md:px-8"
         >
           <VStack space="md" className="items-center md:items-start">

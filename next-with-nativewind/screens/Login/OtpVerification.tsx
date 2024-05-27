@@ -70,11 +70,11 @@ function PinInput({
               focusedIndex === index
                 ? "border-b-primary-900"
                 : "border-b-background-500"
-            } bg-background-0 md:w-1/6 lg:w-12 dark:bg-background-400 ${
+            } bg-background-0 md:w-1/6 lg:w-25/2 dark:bg-background-400 ${
               focusedIndex === index
                 ? "border-b-primary-500"
                 : "border-b-background-100"
-            } w-14 text-center border-b-2 rounded-sm`}
+            } w-100/7 text-center border-b-2 rounded-sm`}
           />
         </Input>
       ))}
@@ -231,7 +231,7 @@ export default function OtpVerification() {
         <SideContainerWeb />
       </Box>
       <Box
-        className="max-w-[508px] flex-1 px-4 py-8 bg-background-0
+        className="max-w-508 flex-1 px-4 py-8 bg-background-0
             dark:bg-background-50 md:p-8"
       >
         <MainText />

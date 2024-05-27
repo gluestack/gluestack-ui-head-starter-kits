@@ -44,22 +44,19 @@ function ActionButtons() {
 }
 
 function HeaderLogo() {
-  const {colorScheme} = useColorScheme();
   return (
     <Box className="items-center justify-center ">
-      {colorScheme === 'light' ? (
-        <Image
-          alt="gluestack-ui Pro"
-          source={require('./assets/images/gluestack-fulllogo-light.png')}
-          className="w-96 h-16"
-        />
-      ) : (
-        <Image
-          alt="gluestack-ui Pro"
-          source={require('./assets/images/gluestack-fulllogo-dark.png')}
-          className="w-96 h-16"
-        />
-      )}
+      <Image
+        alt="gluestack-ui Pro"
+        source={require('./assets/images/gluestack-fulllogo-light.png')}
+        className="md:flex hidden h-141 w-275 object-contain"
+      />
+
+      <Image
+        alt="gluestack-ui Pro"
+        source={require('./assets/images/gluestack-fulllogo-dark.png')}
+        className="flex md:hidden h-40 w-80 "
+      />
     </Box>
   );
 }
@@ -69,7 +66,7 @@ export default function SplashScreen() {
     // place GluestackUIProvider in your app root accordingly
     <GuestLayout>
       <Center className="w-full flex-1">
-        <Box className="max-w-[508px] w-full min-h-[100px] md:px-8 px-4 justify-center">
+        <Box className="max-w-508 min-h-authcard w-full md:px-8 px-4 justify-center">
           <HeaderLogo />
           <ActionButtons />
         </Box>

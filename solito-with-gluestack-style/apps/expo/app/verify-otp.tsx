@@ -1,5 +1,5 @@
-import OtpVerificationScreen from '@gluestack/app/Login/OtpVerification'
+import OtpVerificationScreen from 'app/screens/Login/OtpVerification'
 
-export default () => {
+export default function Page() {
   return <OtpVerificationScreen />
 }

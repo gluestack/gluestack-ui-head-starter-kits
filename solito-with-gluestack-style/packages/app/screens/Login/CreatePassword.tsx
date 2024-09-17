@@ -51,7 +51,7 @@ const createPasswordSchema = z.object({
     .regex(new RegExp('.*\\d.*'), 'One number')
     .regex(
       new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-      'One special character'
+      'One special character',
     ),
   confirmpassword: z
     .string()
@@ -61,7 +61,7 @@ const createPasswordSchema = z.object({
     .regex(new RegExp('.*\\d.*'), 'One number')
     .regex(
       new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-      'One special character'
+      'One special character',
     ),
 })
 
@@ -264,7 +264,7 @@ export default function CreatePassword() {
                         onChangeText={onChange}
                         onBlur={onBlur}
                         onSubmitEditing={handleKeyPress}
-                        returnKeyType="done"
+                        enterKeyHint="done"
                         type={showPassword ? 'text' : 'password'}
                       />
                       <InputSlot onPress={handleState} mr="$2">
@@ -322,7 +322,7 @@ export default function CreatePassword() {
                         onChangeText={onChange}
                         onBlur={onBlur}
                         onSubmitEditing={handleKeyPress}
-                        returnKeyType="done"
+                        enterKeyHint="done"
                         type={showConfirmPassword ? 'text' : 'password'}
                       />
                       <InputSlot onPress={handleConfirmPasswordState} mr="$2">

@@ -8,7 +8,7 @@ import {
   ButtonText,
 } from '@gluestack-ui/themed'
 
-import { Link } from 'solito/link'
+import { TextLink } from 'solito/link'
 import GuestLayout from '../../layouts/GuestLayout'
 
 // to render login and sign up buttons
@@ -32,7 +32,7 @@ function ActionButtons() {
         size="md"
         backgroundColor="$backgroundLight0"
       >
-        <Link href="/login">
+        <TextLink href="/login">
           <ButtonText
             fontWeight="$bold"
             textDecorationLine="none"
@@ -40,7 +40,7 @@ function ActionButtons() {
           >
             LOGIN
           </ButtonText>
-        </Link>
+        </TextLink>
       </Button>
 
       <Button
@@ -57,11 +57,11 @@ function ActionButtons() {
         variant="outline"
         borderColor="$borderLight0"
       >
-        <Link href="/signup">
+        <TextLink href="/signup">
           <ButtonText textDecorationLine="none" color="$textLight50">
             SIGN UP
           </ButtonText>
-        </Link>
+        </TextLink>
       </Button>
     </VStack>
   )

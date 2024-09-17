@@ -1,4 +1,4 @@
-import OtpVerificationScreen from '@gluestack/app/Login/OtpVerification'
+import OtpVerificationScreen from 'app/screens/Login/OtpVerification'
 
 const Screen = () => {
   return <OtpVerificationScreen />

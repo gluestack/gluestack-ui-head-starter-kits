@@ -4,9 +4,10 @@
   "main": "index.ts",
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "lucide-react-native": "^0.291.0",
+    "lucide-react-native": "^0.364.0",
     "moti": "latest",
     "react-hook-form": "^7.47.0",
+    "react-native-svg": "^14.0.0",
     "solito": "4.0.1"
   },
   "sideEffects": false

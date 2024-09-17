@@ -1,4 +1,4 @@
-import SplashScreen from '@gluestack/app/Login/SplashScreen'
+import SplashScreen from 'app/screens/Login/SplashScreen'
 
 const Screen = () => {
   return <SplashScreen />

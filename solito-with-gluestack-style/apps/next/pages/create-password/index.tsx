@@ -1,4 +1,4 @@
-import CreatePasswordScreen from '@gluestack/app/Login/CreatePassword'
+import CreatePasswordScreen from 'app/screens/Login/CreatePassword'
 
 const Screen = () => {
   return <CreatePasswordScreen />

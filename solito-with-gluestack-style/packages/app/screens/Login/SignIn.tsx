@@ -60,7 +60,7 @@ const signInSchema = z.object({
     .regex(new RegExp('.*\\d.*'), 'One number')
     .regex(
       new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-      'One special character'
+      'One special character',
     ),
   rememberme: z.boolean().optional(),
 })
@@ -140,7 +140,7 @@ const SignInForm = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   onSubmitEditing={handleKeyPress}
-                  returnKeyType="done"
+                  enterKeyHint="done"
                 />
               </Input>
             )}
@@ -179,7 +179,7 @@ const SignInForm = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   onSubmitEditing={handleKeyPress}
-                  returnKeyType="done"
+                  enterKeyHint="done"
                   type={showPassword ? 'text' : 'password'}
                 />
                 <InputSlot onPress={handleState} pr="$3">
@@ -215,6 +215,7 @@ const SignInForm = () => {
             isChecked={value}
             onChange={onChange}
             alignSelf="flex-start"
+            aria-label="check"
           >
             <CheckboxIndicator mr="$2">
               <CheckboxIcon as={CheckIcon} />
@@ -259,13 +260,13 @@ function MobileHeader() {
   return (
     <VStack px="$3" mt="$4.5" space="md">
       <HStack space="md" alignItems="center">
-        <Pressable onPress={() => {}}>
+        <Link href="/">
           <Icon
             as={ArrowLeftIcon}
             color="$textLight50"
             sx={{ _dark: { color: '$textDark50' } }}
           />
-        </Pressable>
+        </Link>
         <Text
           color="$textLight50"
           sx={{ _dark: { color: '$textDark50' } }}
@@ -381,7 +382,7 @@ const Main = () => {
             fontSize="$sm"
             sx={{ _dark: { color: '$textDark400' } }}
           >
-            Don't have an account?
+            Don&apos;t have an account?
           </Text>
           <Link href="/signup">
             <LinkText fontSize="$sm">Sign up</LinkText>

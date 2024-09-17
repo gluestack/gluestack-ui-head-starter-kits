@@ -227,7 +227,7 @@ function ResendLink() {
         }}
         fontSize="$sm"
       >
-        Didn't receive the OTP?{' '}
+        Did&apos;t receive the OTP?{' '}
       </Text>
       <Link href="#">
         <LinkText fontSize="$sm">RESEND OTP</LinkText>

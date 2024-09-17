@@ -1,6 +1,5 @@
-// index app
-import SplashScreen from '@gluestack/app/Login/SplashScreen'
+import SplashScreen from 'app/screens/Login/SplashScreen'
 
-export default () => {
+export default function Page() {
   return <SplashScreen />
 }

@@ -1,4 +1,4 @@
-import SignInScreen from '@gluestack/app/Login/SignIn'
+import SignInScreen from 'app/screens/Login/SignIn'
 
 const Screen = () => {
   return <SignInScreen />
